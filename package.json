@@ -43,7 +43,11 @@
     }
   },
   "stylelint": {
-    "extends": "stylelint-config-standard"
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "media-feature-range-notation": null,
+      "no-descending-specificity": null
+    }
   },
   "prettier": {
     "semi": true,
