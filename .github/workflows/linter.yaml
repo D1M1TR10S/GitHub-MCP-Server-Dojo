@@ -1,0 +1,144 @@
+name: Code Linting and Formatting
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  push:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    name: Lint and Format Check
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        npm install -g prettier eslint htmlhint stylelint stylelint-config-standard
+        # Install additional linting tools for web development
+        npm install -g markdownlint-cli
+
+    - name: Lint HTML files
+      run: |
+        if find . -name "*.html" -not -path "./node_modules/*" | head -1 | grep -q .; then
+          echo "Linting HTML files..."
+          find . -name "*.html" -not -path "./node_modules/*" -exec htmlhint {} \;
+        else
+          echo "No HTML files found to lint"
+        fi
+
+    - name: Lint CSS files
+      run: |
+        if find . -name "*.css" -not -path "./node_modules/*" | head -1 | grep -q .; then
+          echo "Linting CSS files..."
+          find . -name "*.css" -not -path "./node_modules/*" -exec stylelint {} \;
+        else
+          echo "No CSS files found to lint"
+        fi
+
+    - name: Lint JavaScript files
+      run: |
+        if find . -name "*.js" -not -path "./node_modules/*" | head -1 | grep -q .; then
+          echo "Linting JavaScript files..."
+          find . -name "*.js" -not -path "./node_modules/*" -exec eslint {} \;
+        else
+          echo "No JavaScript files found to lint"
+        fi
+
+    - name: Lint Markdown files
+      run: |
+        if find . -name "*.md" -not -path "./node_modules/*" | head -1 | grep -q .; then
+          echo "Linting Markdown files..."
+          markdownlint "**/*.md" --ignore node_modules
+        else
+          echo "No Markdown files found to lint"
+        fi
+
+    - name: Check Prettier formatting
+      run: |
+        echo "Checking code formatting with Prettier..."
+        prettier --check "**/*.{html,css,js,json,md}" --ignore-path .gitignore || {
+          echo "❌ Code formatting issues found. Run 'prettier --write .' to fix them."
+          exit 1
+        }
+
+    - name: Validate file structure
+      run: |
+        echo "Validating project structure..."
+        # Check for required files and directories
+        if [ ! -f "README.md" ]; then
+          echo "❌ README.md is missing"
+          exit 1
+        fi
+        
+        if [ ! -d ".docs" ]; then
+          echo "❌ .docs directory is missing"
+          exit 1
+        fi
+        
+        if [ ! -f ".docs/prompts.md" ]; then
+          echo "❌ .docs/prompts.md is missing"
+          exit 1
+        fi
+        
+        echo "✅ Project structure validation passed"
+
+  format-check:
+    name: Auto-format suggestions
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install Prettier
+      run: npm install -g prettier
+
+    - name: Check if auto-formatting is needed
+      run: |
+        if ! prettier --check "**/*.{html,css,js,json,md}" --ignore-path .gitignore; then
+          echo "## 🔧 Code Formatting Suggestions" >> format_suggestions.md
+          echo "" >> format_suggestions.md
+          echo "Some files need formatting. You can fix them by running:" >> format_suggestions.md
+          echo "" >> format_suggestions.md
+          echo '```bash' >> format_suggestions.md
+          echo "npx prettier --write ." >> format_suggestions.md
+          echo '```' >> format_suggestions.md
+          echo "" >> format_suggestions.md
+          echo "This will automatically format all HTML, CSS, JavaScript, JSON, and Markdown files." >> format_suggestions.md
+        else
+          echo "✅ All files are properly formatted!"
+        fi
+
+    - name: Comment on PR (if formatting needed)
+      if: failure()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          if (fs.existsSync('format_suggestions.md')) {
+            const suggestions = fs.readFileSync('format_suggestions.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: suggestions
+            });
+          }
