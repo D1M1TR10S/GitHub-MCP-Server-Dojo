@@ -1,0 +1,52 @@
+{
+  "name": "github-mcp-server-dojo",
+  "version": "1.0.0",
+  "description": "A playground repository for experimenting with the GitHub MCP Server - exploring its powerful tools, testing workflows, and discovering creative automation possibilities.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "lint:js": "eslint . --ext .js",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:html": "htmlhint \"**/*.html\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "github",
+    "mcp",
+    "automation",
+    "devtools"
+  ],
+  "author": "Dimitrios Philliou",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "htmlhint": "^1.1.4",
+    "prettier": "^3.0.0",
+    "stylelint": "^15.10.1",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true
+  }
+}
