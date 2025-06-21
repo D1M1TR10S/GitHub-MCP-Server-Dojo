@@ -3,11 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic HTML</title>
+    <title>GitHub MCP Dojo 🥋</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🥋 GitHub MCP Dojo</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#intro">Intro</a>
+                <a href="#features">Features</a>
+                <a href="#demos">Demos</a>
+                <a href="#setup">Setup</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Master the GitHub MCP Server</h1>
+                <p class="hero-subtitle">Unlock the power of agentic coding with the GitHub MCP server</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('features')">
+                        <i class="fas fa-rocket"></i> Explore Features
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('setup')">
+                        <i class="fas fa-cog"></i> Get Started
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="intro" class="section">
+            <div class="container">
+                <h2>What is the GitHub MCP Server?</h2>
+                <div class="intro-grid">
+                    <div class="intro-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Model Context Protocol</h3>
+                        <p>A standardized protocol that enables AI tools to interact seamlessly with external systems and data sources.</p>
+                    </div>
+                    <div class="intro-card">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub Integration</h3>
+                        <p>Direct integration with GitHub APIs for repository management, issue tracking, and workflow automation.</p>
+                    </div>
+                    <div class="intro-card">
+                        <i class="fas fa-magic"></i>
+                        <h3>AI-Powered Automation</h3>
+                        <p>Leverage AI to automate complex GitHub workflows and enhance your development experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section section-alt">
+            <div class="container">
+                <h2>Powerful Toolsets</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3>Repository Management</h3>
+                        <p>Complete control over files, branches, commits, and repository operations.</p>
+                        <ul>
+                            <li>File operations</li>
+                            <li>Branch management</li>
+                            <li>Bulk operations</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <h3>Issue Automation</h3>
+                        <p>Smart issue management with automated triage and analytics.</p>
+                        <ul>
+                            <li>Smart triage</li>
+                            <li>Issue analytics</li>
+                            <li>Batch operations</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3>Pull Request Workflows</h3>
+                        <p>Automated reviews, merge management, and PR analytics.</p>
+                        <ul>
+                            <li>Automated reviews</li>
+                            <li>Merge management</li>
+                            <li>PR analytics</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Security & Compliance</h3>
+                        <p>Code scanning, secret detection, and security reporting.</p>
+                        <ul>
+                            <li>Code scanning</li>
+                            <li>Secret detection</li>
+                            <li>Security reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demos" class="section">
+            <div class="container">
+                <h2>Interactive Demos</h2>
+                <p class="section-subtitle">Coming soon! Explore live examples of GitHub MCP Server capabilities.</p>
+                <div class="demo-placeholder">
+                    <i class="fas fa-tools"></i>
+                    <h3>Demos Under Construction</h3>
+                    <p>We're building interactive demonstrations to showcase the power of the GitHub MCP Server.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="setup" class="section section-alt">
+            <div class="container">
+                <h2>Get Started</h2>
+                <div class="setup-options">
+                    <div class="setup-card">
+                        <h3><i class="fas fa-cloud"></i> Remote Server (Easiest)</h3>
+                        <p>Use the hosted GitHub MCP Server for instant setup:</p>
+                        <pre><code>{
+  "servers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    }
+  }
+}</code></pre>
+                        <button class="btn btn-outline">Copy Configuration</button>
+                    </div>
+                    <div class="setup-card">
+                        <h3><i class="fas fa-docker"></i> Local Server (Docker)</h3>
+                        <p>Run the server locally for development:</p>
+                        <pre><code>docker run -i --rm \
+  -e GITHUB_PERSONAL_ACCESS_TOKEN=&lt;token&gt; \
+  ghcr.io/github/github-mcp-server</code></pre>
+                        <button class="btn btn-outline">Copy Command</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 GitHub MCP Server Dojo. Built with ❤️ for the developer community.</p>
+            <div class="footer-links">
+                <a href="https://github.com/github/github-mcp-server" target="_blank">
+                    <i class="fab fa-github"></i> GitHub Repo
+                </a>
+                <a href="https://modelcontextprotocol.io" target="_blank">
+                    <i class="fas fa-link"></i> MCP Docs
+                </a>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
