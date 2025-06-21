@@ -47,6 +47,7 @@ The remote GitHub MCP Server is hosted by GitHub and provides the easiest setup 
    }
    ```
 
+
 ### Local Server (Docker)
 For local development or custom configurations:
 
@@ -90,8 +91,10 @@ Check out [`.docs/prompts.md`](.docs/prompts.md) for detailed examples including
 
 ## License
 
-This project is licensed under the MIT License - see the [GitHub MCP Server license](https://github.com/github/github-mcp-server/blob/main/LICENSE) for details.
+This project is licensed under the MIT License - see the 
+[GitHub MCP Server license](https://github.com/github/github-mcp-server/blob/main/LICENSE) for details.
 
 ---
 
-🚀 **Ready to explore?** Start with the examples in [`.docs/prompts.md`](.docs/prompts.md) and unleash the power of GitHub automation!
+🚀 **Ready to explore?** Start with the examples in [`.docs/prompts.md`](.docs/prompts.md) 
+and unleash the power of GitHub automation!
