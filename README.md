@@ -32,6 +32,7 @@ The GitHub MCP Server offers several powerful toolsets:
 ## Quick Start
 
 ### Remote Server (Easiest)
+
 The remote GitHub MCP Server is hosted by GitHub and provides the easiest setup method:
 
 1. **VS Code**: Use the one-click install button from the [official repo](https://github.com/github/github-mcp-server)
@@ -47,8 +48,8 @@ The remote GitHub MCP Server is hosted by GitHub and provides the easiest setup 
    }
    ```
 
-
 ### Local Server (Docker)
+
 For local development or custom configurations:
 
 ```bash
