@@ -3,11 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic HTML</title>
+    <title>GitHub MCP Server Dojo 🥋</title>
+    <meta name="description" content="A playground repository for experimenting with the GitHub MCP Server - exploring its powerful tools, testing workflows, and discovering creative automation possibilities.">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1>GitHub MCP Server Dojo 🥋</h1>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#toolsets">Toolsets</a>
+                    <a href="#quick-start">Quick Start</a>
+                    <a href="#examples">Examples</a>
+                    <a href=".docs/prompts.md" target="_blank">Documentation</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Explore GitHub Automation with AI</h2>
+                <p class="hero-subtitle">A playground repository for experimenting with the GitHub MCP Server - exploring its powerful tools, testing workflows, and discovering creative automation possibilities.</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/github/github-mcp-server" class="btn btn-primary" target="_blank">GitHub MCP Server</a>
+                    <a href=".docs/prompts.md" class="btn btn-secondary">View Examples</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About</h2>
+                <p>This repository serves as a testing ground and learning environment for the GitHub Model Context Protocol (MCP) Server. The GitHub MCP Server provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities through AI tools.</p>
+            </div>
+        </section>
+
+        <section id="toolsets">
+            <div class="container">
+                <h2>GitHub MCP Server Toolsets</h2>
+                <div class="toolsets-grid">
+                    <div class="toolset-card">
+                        <h3>repos</h3>
+                        <p>Repository operations (files, branches, commits)</p>
+                    </div>
+                    <div class="toolset-card">
+                        <h3>issues</h3>
+                        <p>Issue management and tracking</p>
+                    </div>
+                    <div class="toolset-card">
+                        <h3>pull_requests</h3>
+                        <p>PR creation, reviews, and management</p>
+                    </div>
+                    <div class="toolset-card">
+                        <h3>actions</h3>
+                        <p>GitHub Actions workflows and CI/CD</p>
+                    </div>
+                    <div class="toolset-card">
+                        <h3>code_security</h3>
+                        <p>Code scanning and security alerts</p>
+                    </div>
+                    <div class="toolset-card">
+                        <h3>notifications</h3>
+                        <p>GitHub notifications management</p>
+                    </div>
+                    <div class="toolset-card">
+                        <h3>users</h3>
+                        <p>User and account operations</p>
+                    </div>
+                    <div class="toolset-card">
+                        <h3>context</h3>
+                        <p>Current user and GitHub context</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quick-start">
+            <div class="container">
+                <h2>Quick Start</h2>
+                <div class="quick-start-options">
+                    <div class="option">
+                        <h3>Remote Server (Easiest)</h3>
+                        <p>The remote GitHub MCP Server is hosted by GitHub and provides the easiest setup method.</p>
+                        <div class="install-buttons">
+                            <a href="https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D" class="btn btn-install" target="_blank">Install in VS Code</a>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <h3>Local Server (Docker)</h3>
+                        <p>For local development or custom configurations:</p>
+                        <code class="code-block">
+docker run -i --rm \
+  -e GITHUB_PERSONAL_ACCESS_TOKEN=&lt;your-token&gt; \
+  ghcr.io/github/github-mcp-server
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples">
+            <div class="container">
+                <h2>Example Workflows</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h3>Repository Management</h3>
+                        <p>File operations, branch management, bulk operations</p>
+                    </div>
+                    <div class="example-card">
+                        <h3>Issue Automation</h3>
+                        <p>Smart triage, analytics, batch operations</p>
+                    </div>
+                    <div class="example-card">
+                        <h3>PR Workflows</h3>
+                        <p>Automated reviews, merge management, analytics</p>
+                    </div>
+                    <div class="example-card">
+                        <h3>CI/CD Integration</h3>
+                        <p>Workflow monitoring, failure analysis, deployment automation</p>
+                    </div>
+                    <div class="example-card">
+                        <h3>Security & Compliance</h3>
+                        <p>Code scanning, secret detection, security reporting</p>
+                    </div>
+                    <div class="example-card">
+                        <h3>Team Collaboration</h3>
+                        <p>Notification management, user analytics, cross-repo operations</p>
+                    </div>
+                </div>
+                <div class="examples-cta">
+                    <a href=".docs/prompts.md" class="btn btn-primary">View Full Documentation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GitHub MCP Server Dojo. Licensed under the MIT License.</p>
+            <div class="footer-links">
+                <a href="https://github.com/github/github-mcp-server" target="_blank">GitHub MCP Server</a>
+                <a href="https://modelcontextprotocol.io/introduction" target="_blank">MCP Documentation</a>
+                <a href="https://docs.github.com/en/rest" target="_blank">GitHub API</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
