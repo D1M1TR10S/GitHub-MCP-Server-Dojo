@@ -4,13 +4,12 @@
   "description": "A playground repository for experimenting with the GitHub MCP Server - exploring its powerful tools, testing workflows, and discovering creative automation possibilities.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint:style": "stylelint \"**/*.css\"",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "lint:js": "eslint . --ext .js",
+    "lint:css": "stylelint \"**/*.css\"",
     "lint:html": "htmlhint \"**/*.html\"",
-    "lint:md": "markdownlint \"**/*.md\" --ignore node_modules"
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "keywords": [
     "github",
@@ -23,9 +22,31 @@
   "devDependencies": {
     "eslint": "^8.45.0",
     "htmlhint": "^1.1.4",
-    "markdownlint-cli": "^0.35.0",
     "prettier": "^3.0.0",
     "stylelint": "^15.10.1",
     "stylelint-config-standard": "^34.0.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true
   }
 }
