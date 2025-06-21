@@ -63,7 +63,7 @@ docker run -i --rm \
 Check out [`.docs/prompts.md`](.docs/prompts.md) for detailed examples including:
 
 - **Repository Management** - File operations, branch management, bulk operations
-- **Issue Automation** - Smart triage, analytics, batch operations  
+- **Issue Automation** - Smart triage, analytics, batch operations
 - **PR Workflows** - Automated reviews, merge management, analytics
 - **CI/CD Integration** - Workflow monitoring, failure analysis, deployment automation
 - **Security & Compliance** - Code scanning, secret detection, security reporting
