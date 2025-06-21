@@ -1,0 +1,31 @@
+{
+  "name": "github-mcp-server-dojo",
+  "version": "1.0.0",
+  "description": "A playground repository for experimenting with the GitHub MCP Server - exploring its powerful tools, testing workflows, and discovering creative automation possibilities.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:style": "stylelint \"**/*.css\"",
+    "lint:html": "htmlhint \"**/*.html\"",
+    "lint:md": "markdownlint \"**/*.md\" --ignore node_modules"
+  },
+  "keywords": [
+    "github",
+    "mcp",
+    "automation",
+    "devtools"
+  ],
+  "author": "Dimitrios Philliou",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "htmlhint": "^1.1.4",
+    "markdownlint-cli": "^0.35.0",
+    "prettier": "^3.0.0",
+    "stylelint": "^15.10.1",
+    "stylelint-config-standard": "^34.0.0"
+  }
+}
