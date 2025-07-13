@@ -1,0 +1,20 @@
+{
+    "servers": {
+      "github": {
+        "type": "http",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "headers": {
+          "Authorization": "token YOUR_GITHUB_TOKEN_HERE",
+          "Accept": "application/vnd.github.v3+json",
+          "User-Agent": "Windsurf-MCP"
+        }
+      } 
+    },
+    "inputs": [
+      {
+        "type": "promptString",
+        "name": "githubUrl",
+        "description": "GitHub URL or repository pattern"
+      }
+    ]
+}
