@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             position: absolute;
             top: 8px;
             right: 8px;
-            background: #0969da;
+            background: #9D7BFF;
             color: white;
             border: none;
             padding: 4px 8px;
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         top: 0;
         left: 0;
         height: 3px;
-        background: linear-gradient(90deg, #0969da, #2da44e);
+        background: linear-gradient(90deg, #9D7BFF, #C792EA);
         z-index: 1000;
         transition: width 0.1s ease;
     `;
