@@ -6,6 +6,90 @@ A playground repository for experimenting with the [GitHub MCP Server](https://g
 
 This repository serves as a testing ground and learning environment for the GitHub Model Context Protocol (MCP) Server. The GitHub MCP Server provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities through AI tools.
 
+## Architecture Overview
+
+```mermaid
+graph TB
+    subgraph "Frontend Application"
+        HTML[index.html<br/>Main Structure<br/>🌐 Website Layout] --> CSS[styles.css<br/>Dark Purple Theme<br/>🎨 Visual Styling]
+        HTML --> JS[script.js<br/>Interactive Features<br/>⚡ DOM Manipulation]
+        CSS --> VARS[CSS Variables<br/>🎯 Theme System<br/>Color Management]
+        JS --> FEATURES[🔥 Features:<br/>• Smooth Scrolling<br/>• Animations<br/>• Copy Functionality<br/>• Progress Indicator]
+    end
+    
+    subgraph "Development Toolchain"
+        PKG[package.json<br/>📦 Dependencies & Scripts<br/>Project Configuration] --> ESLINT[ESLint<br/>📝 JavaScript Linting]
+        PKG --> STYLELINT[Stylelint<br/>🎨 CSS Linting]
+        PKG --> HTMLHINT[HTMLHint<br/>🌐 HTML Validation]
+        PKG --> PRETTIER[Prettier<br/>✨ Code Formatting]
+        HTMLHINTRC[.htmlhintrc<br/>⚙️ HTML Validation Rules] --> HTMLHINT
+        PACKAGELOCK[package-lock.json<br/>🔒 Dependency Lock] --> PKG
+    end
+    
+    subgraph "GitHub Integration"
+        MCP_EXAMPLE[.vscode/mcp.json.example<br/>📋 MCP Server Template<br/>Safe Configuration] --> GITHUB_API[GitHub MCP Server<br/>🔗 Remote HTTP Endpoint<br/>api.githubcopilot.com]
+        ENV_EXAMPLE[.env.example<br/>🔐 Environment Template<br/>Token Placeholder] --> LOCAL_SETUP[Local Development<br/>🛠️ Configuration Setup]
+        CLAUDE_CONFIG[.claude/settings.local.json<br/>🤖 Claude MCP Settings<br/>Permissions & Servers]
+    end
+    
+    subgraph "Documentation & Content"
+        README[README.md<br/>📚 Project Overview<br/>Architecture Guide] --> DOCS[.docs/prompts.md<br/>📖 Usage Examples<br/>314+ Lines of Workflows]
+        DOCS --> WORKFLOW_EXAMPLES[🎯 Workflow Categories:<br/>• Repository Management<br/>• Issue Automation<br/>• PR Workflows<br/>• CI/CD Integration<br/>• Security & Compliance<br/>• Team Collaboration]
+    end
+    
+    subgraph "CI/CD Pipeline"
+        DEPLOY_WF[.github/workflows/deploy.yml<br/>🚀 GitHub Pages Deploy<br/>Automated Deployment] --> PAGES[GitHub Pages<br/>🌍 Static Hosting<br/>Live Website]
+        LINT_WF[.github/workflows/linter.yaml<br/>✅ PR Validation<br/>Code Quality Checks] --> QUALITY[Code Quality<br/>🔍 Automated Checks<br/>ESLint + Stylelint + HTMLHint]
+        PKG --> DEPLOY_WF
+        PKG --> LINT_WF
+    end
+    
+    subgraph "Configuration & Security"
+        GITIGNORE[.gitignore<br/>🛡️ Git Exclusions<br/>Security Protection] --> NODE_MODULES[node_modules/<br/>📚 Dev Dependencies<br/>Excluded from Git]
+        GITIGNORE --> ENV_SECURITY[🔒 Protected Files:<br/>• .env<br/>• .vscode/mcp.json<br/>• *.local files]
+    end
+    
+    subgraph "Runtime Interactions"
+        BROWSER[🌐 Web Browser] --> HTML
+        VSCODE[💻 VS Code] --> MCP_EXAMPLE
+        GITHUB_API --> API_ENDPOINTS[GitHub REST API<br/>🔧 Toolsets:<br/>• repos • issues • pull_requests<br/>• actions • code_security<br/>• notifications • users<br/>• secret_protection • context]
+        CLAUDE_CONFIG --> GITHUB_API
+    end
+    
+    subgraph "Content Architecture"
+        HTML --> HERO[🎯 Hero Section<br/>Project Introduction<br/>Call-to-Action Buttons]
+        HTML --> TOOLSETS[🧰 Toolsets Grid<br/>8 MCP Toolsets<br/>Interactive Cards]
+        HTML --> QUICKSTART[⚡ Quick Start<br/>Installation Options<br/>Remote & Local Setup]
+        HTML --> EXAMPLES[📋 Examples Grid<br/>6 Workflow Categories<br/>Feature Showcase]
+        DOCS --> ADVANCED_EXAMPLES[🚀 Advanced Features:<br/>• Cross-Repository Operations<br/>• Intelligent Automation<br/>• Security Workflows<br/>• Team Analytics]
+    end
+    
+    %% File Flow Dependencies
+    HTML -.->|references| CSS
+    HTML -.->|references| JS
+    CSS -.->|cache busting| VERSIONING[?v=2025-06-20]
+    JS -.->|cache busting| VERSIONING
+    
+    %% Styling with enhanced colors
+    classDef frontend fill:#9D7BFF,stroke:#C792EA,stroke-width:3px,color:#fff
+    classDef toolchain fill:#4ADE80,stroke:#22C55E,stroke-width:3px,color:#000
+    classDef github fill:#60A5FA,stroke:#3B82F6,stroke-width:3px,color:#fff
+    classDef docs fill:#C792EA,stroke:#9D7BFF,stroke-width:3px,color:#fff
+    classDef cicd fill:#F59E0B,stroke:#D97706,stroke-width:3px,color:#000
+    classDef config fill:#6B7280,stroke:#4B5563,stroke-width:3px,color:#fff
+    classDef runtime fill:#EF4444,stroke:#DC2626,stroke-width:3px,color:#fff
+    classDef content fill:#10B981,stroke:#059669,stroke-width:3px,color:#fff
+    
+    class HTML,CSS,JS,VARS,FEATURES,VERSIONING frontend
+    class PKG,ESLINT,STYLELINT,HTMLHINT,PRETTIER,HTMLHINTRC,PACKAGELOCK toolchain
+    class MCP_EXAMPLE,GITHUB_API,ENV_EXAMPLE,LOCAL_SETUP,CLAUDE_CONFIG,API_ENDPOINTS github
+    class README,DOCS,WORKFLOW_EXAMPLES,ADVANCED_EXAMPLES docs
+    class DEPLOY_WF,LINT_WF,PAGES,QUALITY cicd
+    class GITIGNORE,NODE_MODULES,ENV_SECURITY config
+    class BROWSER,VSCODE runtime
+    class HERO,TOOLSETS,QUICKSTART,EXAMPLES content
+```
+
 ## What's Inside
 
 - **`.docs/prompts.md`** - Comprehensive collection of example prompts and workflows showcasing the full capabilities of the GitHub MCP Server
