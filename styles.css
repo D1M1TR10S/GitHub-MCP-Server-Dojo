@@ -7,81 +7,10 @@
     --text-secondary: #A0A0A0;
     --accent-primary: #9D7BFF;
     --accent-secondary: #C792EA;
-    --accent-success: #42B883;
+    --accent-success: #4ADE80;
     --accent-info: #60A5FA;
     --border-color: #2A2438;
     --shadow-color: rgb(0 0 0 / 30%);
-    
-    /* Glow effect variables */
-    --glow-purple: #9D7BFF;
-    --glow-purple-light: #C792EA;
-    --glow-green: #42B883;
-    --glow-blue: #60A5FA;
-}
-
-/* Glow Effect Animations */
-@keyframes glow-border {
-    0% {
-        opacity: 0;
-        transform: translate(-100%, -100%);
-    }
-
-    25% {
-        opacity: 1;
-        transform: translate(-50%, -100%);
-    }
-
-    50% {
-        opacity: 1;
-        transform: translate(0%, -50%);
-    }
-
-    75% {
-        opacity: 1;
-        transform: translate(0%, 0%);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(50%, 50%);
-    }
-}
-
-/* Base glow effect utility */
-.glow-effect {
-    position: relative;
-    overflow: hidden;
-}
-
-.glow-effect::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, transparent, var(--glow-color, var(--glow-purple)), transparent);
-    border-radius: inherit;
-    opacity: 0;
-    z-index: -1;
-    transform: translate(-100%, -100%);
-    transition: all 0.2s ease;
-    will-change: transform, opacity;
-}
-
-.glow-effect:hover::before {
-    animation: glow-border 0.8s ease-in-out;
-}
-
-/* Accessibility: Respect reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    .glow-effect::before,
-    .glow-effect:hover::before {
-        animation: none;
-        transition: none;
-    }
-    
-    .glow-effect:hover::before {
-        opacity: 0.3;
-        transform: translate(0, 0);
-    }
 }
 
 /* Reset and base styles */
@@ -137,35 +66,11 @@ header {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.2s;
-    position: relative;
-    padding: 8px 16px;
-    border-radius: 6px;
-    overflow: hidden;
-    
-    --glow-color: rgb(255 255 255 / 80%);
-}
-
-.nav-links a::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, transparent, var(--glow-color), transparent);
-    border-radius: inherit;
-    opacity: 0;
-    z-index: -1;
-    transform: translate(-100%, -100%);
-    transition: all 0.2s ease;
-    will-change: transform, opacity;
-}
-
-.nav-links a:hover::before {
-    animation: glow-border 0.8s ease-in-out;
+    transition: opacity 0.2s;
 }
 
 .nav-links a:hover {
-    background-color: rgb(255 255 255 / 10%);
-    transform: translateY(-1px);
+    opacity: 0.8;
 }
 
 /* Hero section */
@@ -208,32 +113,11 @@ header {
     font-size: 1rem;
     transition: all 0.2s;
     border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, transparent, var(--glow-color, var(--glow-purple)), transparent);
-    border-radius: inherit;
-    opacity: 0;
-    z-index: -1;
-    transform: translate(-100%, -100%);
-    transition: all 0.2s ease;
-    will-change: transform, opacity;
-}
-
-.btn:hover::before {
-    animation: glow-border 0.8s ease-in-out;
 }
 
 .btn-primary {
     background-color: var(--accent-success);
     color: var(--bg-primary);
-    
-    --glow-color: var(--glow-green);
 }
 
 .btn-primary:hover {
@@ -245,8 +129,6 @@ header {
     background-color: transparent;
     color: var(--text-primary);
     border-color: var(--border-color);
-    
-    --glow-color: var(--glow-purple);
 }
 
 .btn-secondary:hover {
@@ -257,8 +139,6 @@ header {
 .btn-install {
     background-color: var(--accent-info);
     color: white;
-    
-    --glow-color: var(--glow-blue);
 }
 
 .btn-install:hover {
@@ -303,8 +183,6 @@ section p {
     border-radius: 12px;
     border: 1px solid var(--border-color);
     transition: all 0.2s;
-    
-    --glow-color: var(--glow-purple);
 }
 
 .toolset-card:hover {
@@ -341,15 +219,6 @@ section p {
     border-radius: 12px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px var(--shadow-color);
-    transition: all 0.2s;
-    
-    --glow-color: var(--glow-purple);
-}
-
-.option:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px var(--shadow-color);
-    border-color: var(--accent-primary);
 }
 
 .option h3 {
@@ -395,8 +264,6 @@ section p {
     border: 1px solid var(--border-color);
     transition: all 0.2s;
     text-align: left;
-    
-    --glow-color: var(--glow-green);
 }
 
 .example-card:hover {
